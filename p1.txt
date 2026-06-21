@@ -1,0 +1,167 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple ChatBot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="chat-container">
+
+    <h2>Simple ChatBot</h2>
+
+    <!-- Chat messages -->
+    <div id="chat-box"></div>
+
+    <!-- Input area -->
+    <div class="input-area">
+        <input 
+            type="text" 
+            id="user-input" 
+            placeholder="Type your message..."
+        >
+
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+
+
+script.js
+
+const chatBox = document.getElementById('chat-box');
+const userInput = document.getElementById('user-input');
+
+// Predefined question-answer pairs
+const predefinedQA = {
+  "hello":"Hi, how can I help you?",
+  "how are you?": "I'm good, thank you!",
+  "what is your name?": "My name is ChatBot.",
+  "what can you do?": "I can answer predefined questions.",
+  "goodbye": "Goodbye! Have a nice day!",
+  "how was your day?": "It’s nearing the end of the day, your phone dings and a “How was your day?” text stares back at you. Maybe it’s from your crush, best friend, or even your parent. They just want to check in, but how do you respond? Whether you’ve had a good or bad day, we’ve got you covered! Keep reading to learn how you can respond on any type of day to just about anyone."
+};
+
+function sendMessage() {
+
+  const userMessage = userInput.value.trim();
+
+  displayMessage(userMessage, "user");
+
+  const answer = predefinedQA[userMessage];
+
+  if(answer){
+    displayMessage(answer, "bot");
+  }else{
+    displayMessage("I'm sorry, I don't understand.", "bot");
+  }
+
+  userInput.value = '';
+}
+
+function displayMessage(message, sender) {
+
+  const messageDiv = document.createElement('div');
+  messageDiv.textContent = message;
+
+  if(sender === "user"){
+    messageDiv.classList.add("user-message");
+  }else{
+    messageDiv.classList.add("bot-message");
+  }
+
+  chatBox.appendChild(messageDiv);
+
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+
+style.css
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+}
+
+.chat-container{
+    width: 350px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 15px;
+}
+
+h2{
+    text-align: center;
+}
+
+#chat-box{
+    height: 300px;
+    border: 1px solid #ddd;
+    overflow-y: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #fafafa;
+}
+
+#chat-box div{
+    margin: 5px 0;
+    padding: 8px;
+    background: #e6e6e6;
+    border-radius: 5px;
+}
+
+.input-area{
+    display: flex;
+}
+
+#user-input{
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button{
+    padding: 8px 15px;
+    margin-left: 5px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background: #45a049;
+}
+.user-message{
+background:#4CAF50;
+color:black;
+padding:8px;
+margin:5px;
+border-radius:10px;
+text-align:right;
+}
+
+.bot-message{
+background:#e6e6e6;
+padding:8px;
+margin:5px;
+border-radius:10px;
+text-align:left;
+}
