@@ -82,78 +82,41 @@ export default App;
 
 app.css
 
-/* Full page background */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-/* Main container */
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-/* Title */
-/* Voting box */
 .voting-box {
-  width: 80%;
-  max-width: 900px;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(12px);
-  border-radius: 15px;
-  padding: 25px;
-  color: white;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    width: 80%;
+    background: black;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-/* Title */
-.voting-box h2 {
-  text-align: center;
-  margin-bottom: 20px;
+h2 {
+    text-align: center;
 }
 
-/* Table */
 table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
 }
 
-th {
-  background-color: #222;
-  padding: 10px;
+th, td {
+    padding: 10px;
+    text-align: center;
 }
 
-td {
-  padding: 10px;
-  text-align: center;
-}
-
-/* Row hover */
-tr:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Button */
 button {
-  background: linear-gradient(45deg, #ff9933, #ff5722);
-  color: white;
-  border: none;
-  padding: 7px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
+    background: orange;
+    color: white;
+    border: none;
+    padding: 5px 10px;
 }
 
-button:hover {
-  transform: scale(1.05);
-}
-
-/* Image */
 img {
-  border-radius: 5px;
+    width: 40px;
 }
+
 
